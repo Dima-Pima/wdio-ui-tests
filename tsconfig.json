@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2018",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "inlineSources": true,
+    "baseUrl": ".",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "*": [
+        "./*"
+      ],
+      "src/*": [
+        "./src/*"
+      ]
+    },
+    "types": [
+      "node",
+      "webdriverio"
+    ]
+  },
+  "include": [
+    "./src/**/*.ts",
+    "node_modules/@types/mocha/index.d.ts",
+    "node_modules/webdriverio/webdriverio.d.ts"
+  ]
+}

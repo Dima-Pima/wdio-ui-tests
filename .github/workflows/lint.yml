@@ -1,0 +1,24 @@
+name: Linter-check
+
+on: [push]
+
+jobs:
+  tslint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - run: npm install
+      - run: npm run lint
