@@ -1,4 +1,4 @@
-describe('[Seat map] Component on extras page', () => {
+describe('', () => {
     it.skip('Test check', async () => {
         console.log('Yo');
     });
