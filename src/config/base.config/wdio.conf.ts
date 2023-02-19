@@ -1,4 +1,6 @@
-exports.config = {
+import {register} from "ts-node";
+
+export const config: WebdriverIOConfig  = {
     runner: 'local',
     path: '/',
     specs: [
@@ -6,22 +8,21 @@ exports.config = {
     ],
     services: ['chromedriver'],
     maxInstances: 4,
-    retries: 2,
+    specFileRetries: 2,
     logLevel: 'error',
+    capabilities: [],
     bail: 0,
-    mock: false,
     waitforTimeout: 60 * 1000,
     waitforInterval: 500,
     connectionRetryTimeout: 60000,
     connectionRetryCount: 3,
-    pipeline: false,
-    featureFlags: {
-        specFiltering: true
-    },
     framework: 'mocha',
     reporters: [
         'spec'
     ],
+    mock: false,
+    resolution: 'desktop',
+    environment: 'test',
     mochaOpts: {
         ui: 'bdd',
         timeout: 0,
@@ -29,13 +30,22 @@ exports.config = {
     },
 
     /* HOOKS */
-    async onPrepare(config) {
+    onPrepare: function () {
+        //TODO
     },
 
     beforeSession: function () {
-        require('ts-node').register({files: true});
+        register({files: true});
     },
 
-    afterTest: async function (test, context, {error, result, duration, passed, retries}) {
-    }
+    afterTest: function () {
+        //TODO
+    },
 };
+
+
+interface WebdriverIOConfig extends WebdriverIO.Config {
+    mock: boolean;
+    resolution: 'desktop'|'mobile';
+    environment: string;
+}
