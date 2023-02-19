@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "wdio src/config/test.conf.js",
+    "test": "wdio src/config/test.conf.ts",
     "lint": "npx eslint ."
   },
   "repository": {
