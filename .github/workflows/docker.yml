@@ -1,6 +1,6 @@
 name: Docker
 
-on:[push]
+on: [push]
 #  push:
 #    branches:
 #      - master
@@ -16,7 +16,7 @@ jobs:
     name: Build WDIO tests docker image
 
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+#    if: github.event_name == 'push'
 
     steps:
       - uses: actions/checkout@v3
