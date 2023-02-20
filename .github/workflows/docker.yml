@@ -1,12 +1,12 @@
 name: Docker
 
-on:
-  push:
-    branches:
-      - master
+on:[push]
+#  push:
+#    branches:
+#      - master
 
-    tags:
-      - v*
+#    tags:
+#      - v*
 
 env:
   TEST_IMAGE_NAME: tests.image
